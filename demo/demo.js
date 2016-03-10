@@ -8,13 +8,6 @@
 angular.module('app', ['templates'])
 
 angular.module('templates', [])
-  .run(function($templateCache) {
-    $templateCache.put('cached-template', [
-      '<p>',
-        'Hello from the cache',
-      '</p>'
-    ].join(''))
-  });
 
 // "<h1>Hello from the cached template</h1>"
 
@@ -38,7 +31,10 @@ angular.module('templates', [])
 // Initial state
 // angular.module('app', ['templates'])
 
-// angular.module('templates', [])
-//   .run(function() {
-
-//   });
+  // .run(function($templateCache) {
+  //   $templateCache.put('cached-template', [
+  //     '<p>',
+  //       'Hello from the cache',
+  //     '</p>'
+  //   ].join(''))
+  // });
