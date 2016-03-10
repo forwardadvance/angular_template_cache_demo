@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Flickr</title>
+    <script src="lib/angular.js"></script>
+    <script src="js/demo.js"></script>
+    <style>
+    body {
+      font-family: sans-serif;
+      text-align:center;
+    }
+    h1 {
+      font-size:3em;
+    }
+    input {
+      font-size:1em;
+    }
+    ul, li {
+      list-style:none;
+      margin:0;
+      padding:0;
+    }
+    li {
+      display:inline-block;
+      padding:10px;
+    }
+    img {
+      height:240px;
+    }
+    </style>
+  </head>
+  <body ng-app="app" ng-controller="FlickrController">
+    <h1 ng-show='feed'>{{feed.title}}</h1>
+    <h1 ng-hide='feed'>Search Flickr</h1>
+    <input ng-model="tag" ng-change="getFeed(tag)" ng-model-options="{debounce:500}" placeholder="search by tag" />
+    <div class="loading" ng-show="status">
+      Loading...
+    </div>
+    <ul>
+      <li ng-repeat="item in feed.items">
+        <a href="{{item.link}}">
+          <img ng-src="{{item.media.m}}" alt="{{item.title}}"/>
+        </a>
+      </li>
+    </ul>
+
+  </body>
+</html>
